@@ -1,0 +1,40 @@
+---
+title: "타이타닉"
+author: "NJH"
+date: "2022-08-08"
+output: html_document
+---
+
+
+## 데이터 프레임 읽어오기
+
+
+```{r}
+df <- read.csv('../TITANIC/train.csv',header = F)
+str(df)
+```
+
+## 승객 등급별 사망여부
+
+
+```{r}
+mosaicplot(Pclass ~ Survived, data = df,
+           col = 2:4)
+```
+
+## 출발 항구별 승객수는 얼마일까
+
+```{r}
+table(df$Embar)
+```
+
+
+
+## 결측치 분포는 어떠할까
+
+```{r}
+library(VIM)
+aggr(df, numbers = T, prop = F)
+dim(df)
+```
+
